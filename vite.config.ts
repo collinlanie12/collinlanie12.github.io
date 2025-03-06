@@ -7,6 +7,7 @@ export default defineConfig({
   base: "/collinlanie12.github.io/",
   build: {
     outDir: "dist",
+    assetsDir: "assets",
   },
   css: {
     postcss: {
