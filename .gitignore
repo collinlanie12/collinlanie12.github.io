@@ -1,0 +1,11 @@
+# Ignore gh-pages cache
+node_modules/.cache/gh-pages/
+
+# Ignore build output
+dist/
+
+# Ignore editor-specific files
+.vscode/
+
+# Ignore system files
+.DS_Store
