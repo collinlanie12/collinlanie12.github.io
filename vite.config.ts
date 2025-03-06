@@ -4,10 +4,13 @@ import tailwindcss from "tailwindcss";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/collinlanie12.github.io/",
+  base: "./",
   build: {
     outDir: "dist",
     assetsDir: "assets",
+    rollupOptions: {
+      input: "index.html",
+    },
   },
   css: {
     postcss: {
