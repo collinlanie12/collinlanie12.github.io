@@ -3,6 +3,10 @@ import { useState, useEffect } from "react";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Loading from "./components/Loading";
+import Home from "./components/Home";
+import About from "./components/About";
+import Projects from "./components/Projects";
+import Contact from "./components/Contact";
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -28,32 +32,10 @@ const App = () => {
       }`}
     >
       <Navbar />
-      <main className="flex-grow">
-        <section
-          id="home"
-          className="h-screen flex items-center justify-center"
-        >
-          <h1 className="text-5xl font-bold">Welcome to My Portfolio</h1>
-        </section>
-        <section
-          id="about"
-          className="h-screen flex items-center justify-center"
-        >
-          <h1 className="text-4xl font-bold">About Me</h1>
-        </section>
-        <section
-          id="projects"
-          className="h-screen flex items-center justify-center"
-        >
-          <h1 className="text-4xl font-bold">Projects</h1>
-        </section>
-        <section
-          id="contact"
-          className="h-screen flex items-center justify-center"
-        >
-          <h1 className="text-4xl font-bold">Contact</h1>
-        </section>
-      </main>
+      <Home />
+      <About />
+      <Projects />
+      <Contact />
       <Footer />
     </div>
   );
