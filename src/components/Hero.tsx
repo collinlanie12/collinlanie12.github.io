@@ -5,10 +5,10 @@ const Hero = () => {
         id="hero"
         className="h-screen flex flex-col items-center justify-center bg-black text-white text-center"
       >
-        <h1 className="text-5xl font-bold text-center mb-3">
-          Hi, I'm <span className="text-blue-700">Collin</span>
+        <h1 className="text-5xl font-bold text-center mb-6">
+          Hi, I'm <span className="text-blue-700">Collin Lanier</span>
         </h1>
-        <p className="text-5xl mb-6">I'm a Full-Stack Web Developer</p>
+        <p className="text-5xl mb-6">Computer Science Capstone</p>
 
         {/*  Scroll Down Button */}
         <a href="#about" className="mt-10 animate-bounce">
