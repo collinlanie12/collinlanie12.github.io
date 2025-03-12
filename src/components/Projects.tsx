@@ -3,21 +3,21 @@ const artifacts = [
     title: "lorem ipsum 1",
     description:
       "Lorem ipsum odor amet, consectetuer adipiscing elit. At viverra consectetur ridiculus congue malesuada curae. Sodales mus aliquet eros sapien auctor lorem.",
-    image: "src/assets/place-holder-project-image.png",
+    image: "/place-holder-project-image.png",
     link: "#",
   },
   {
     title: "lorem ipsum 2",
     description:
       "Lorem ipsum odor amet, consectetuer adipiscing elit. At viverra consectetur ridiculus congue malesuada curae. Sodales mus aliquet eros sapien auctor lorem.",
-    image: "src/assets/place-holder-project-image.png",
+    image: "/place-holder-project-image.png",
     link: "#",
   },
   {
     title: "lorem ipsum 3",
     description:
       "Lorem ipsum odor amet, consectetuer adipiscing elit. At viverra consectetur ridiculus congue malesuada curae. Sodales mus aliquet eros sapien auctor lorem.",
-    image: "src/assets/place-holder-project-image.png",
+    image: "/place-holder-project-image.png",
     link: "#",
   },
 ];
