@@ -1,4 +1,5 @@
 # Ignore gh-pages cache
+node_modules
 node_modules/.cache/gh-pages/
 
 # Ignore build output
