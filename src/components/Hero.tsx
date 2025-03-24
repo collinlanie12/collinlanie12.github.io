@@ -30,7 +30,7 @@ const Hero = () => {
       {/* Hero Content */}
       <section
         id="hero"
-        className="h-screen flex flex-col items-center justify-center bg-white dark:bg-black text-black dark:text-white text-center"
+        className="h-screen flex flex-col px-1 items-center justify-center bg-white dark:bg-black text-black dark:text-white text-center"
       >
         {/* Particle Background */}
         {init && (
@@ -40,14 +40,14 @@ const Hero = () => {
               fullScreen: { enable: false, zIndex: 0 },
               background: { color: "transparent" },
               particles: {
-                number: { value: 150 },
+                number: { value: 75 },
                 shape: { type: "line" },
                 size: { value: 3 },
                 move: { enable: true, speed: 2 },
                 links: {
                   enable: true,
                   distance: 150,
-                  color: "#0032ba",
+                  color: darkMode ? "#ffffff" : "#01013d", // White for dark mode, dark blue for light mode
                   opacity: 0.5,
                 },
               },
@@ -73,10 +73,10 @@ const Hero = () => {
         >
           {darkMode ? "🌙" : "☀️"}
         </button>
-        <h1 className="text-5xl font-bold text-center mb-6">
+        <h1 className="text-4xl md:text-5xl font-bold text-center mb-6">
           Hi, I'm <span className="text-blue-700">Collin Lanier</span>
         </h1>
-        <p className="text-5xl mb-6">Computer Science Capstone</p>
+        <p className="text-4xl md:text-5xl mb-6">Computer Science Capstone</p>
 
         {/*  Scroll Down Button */}
         <a href="#about" className="mt-10 animate-bounce">
