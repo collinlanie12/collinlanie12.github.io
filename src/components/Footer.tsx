@@ -9,7 +9,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-transparent text-black dark:text-white p-4 border-t bg-sky-200 dark:bg-black dark:border-gray-700">
+    <footer className="bg-sky-200 text-black dark:text-white dark:bg-black p-4 border-t dark:border-gray-700">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
         <p className="text-sm">
           &copy; {new Date().getFullYear()} Collin Lanier. All rights reserved.
