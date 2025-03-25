@@ -5,7 +5,9 @@ interface ProjectModalProps {
     id: number;
     title: string;
     shortDesc: string;
-    fullDesc: string;
+    paragraphs: string[];
+    outcomes?: string[];
+    conclusion?: string;
     image: string;
     githubUrl: string;
   };
@@ -26,8 +28,15 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
     };
 
     document.addEventListener("mousedown", handleClickOutside);
+
+    // Disable scroll on open
+    document.body.style.overflow = "hidden";
+
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+
+      // Re-enable scroll on close
+      document.body.style.overflow = "auto";
     };
   }, [onClose]);
 
@@ -49,9 +58,30 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
           className="w-full object-cover rounded mb-4"
         />
         <h2 className="text-3xl font-bold mb-4">{project.title}</h2>
-        <p className="text-base text-gray-700 dark:text-gray-300 mb-4">
-          {project.fullDesc}
-        </p>
+
+        {/* Render paragraphs */}
+        {project.paragraphs.map((para, index) => (
+          <p key={index} className="mb-4">
+            {para}
+          </p>
+        ))}
+
+        {/* Render outcomes as an indented list */}
+        {project.outcomes && project.outcomes.length > 0 && (
+          <ul className="list-decimal list-inside space-y-2 pl-6 mb-4">
+            {project.outcomes.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
+          </ul>
+        )}
+
+        {/* Optional conclusion paragraph */}
+        {project.conclusion &&
+          project.conclusion.split("\n\n").map((para, index) => (
+            <p key={index} className="mb-4">
+              {para}
+            </p>
+          ))}
         <a
           href={project.githubUrl}
           target="_blank"

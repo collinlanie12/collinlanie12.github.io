@@ -1,12 +1,7 @@
+import { Project } from "../data/types";
+
 interface ProjectProps {
-  project: {
-    id: number;
-    title: string;
-    shortDesc: string;
-    fullDesc: string;
-    image: string;
-    githubUrl: string;
-  };
+  project: Project;
   onClick: () => void;
 }
 
