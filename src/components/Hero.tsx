@@ -30,7 +30,7 @@ const Hero = () => {
       {/* Hero Content */}
       <section
         id="hero"
-        className="h-screen flex flex-col px-1 items-center justify-center bg-white dark:bg-black text-black dark:text-white text-center"
+        className="h-screen flex flex-col px-1 items-center justify-center bg-gray-100 dark:bg-[#121212] text-black dark:text-white text-center"
       >
         {/* Particle Background */}
         {init && (

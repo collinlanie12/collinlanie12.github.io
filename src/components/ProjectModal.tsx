@@ -43,7 +43,7 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
       <div
-        className="bg-white dark:bg-gray-800 text-black dark:text-white rounded-lg shadow-lg w-11/12 md:max-w-4xl max-h-[90vh] overflow-y-auto p-8 relative"
+        className="bg-gray-100 dark:bg-gray-800 text-black dark:text-white rounded-lg shadow-lg w-11/12 md:max-w-4xl max-h-[90vh] overflow-y-auto p-8 relative"
         ref={modalRef}
       >
         <button

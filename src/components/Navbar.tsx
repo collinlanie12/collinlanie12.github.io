@@ -39,7 +39,7 @@ const Navbar = () => {
   return (
     <nav
       ref={navRef}
-      className={`fixed top-0 left-0 w-full h-16 bg-black text-white border-b border-gray-700 transition-transform duration-500 ${
+      className={`fixed top-0 left-0 w-full h-16 bg-sky-200 dark:bg-black text-black dark:text-white border-b bg-opacity-55 dark:bg-opacity-55 border-gray-700 transition-transform duration-500 ${
         isVisible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
