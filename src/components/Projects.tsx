@@ -1,28 +1,45 @@
+import { useState } from "react";
+import ProjectCard from "./ProjectCard";
+import ProjectModal from "./ProjectModal";
+
 const artifacts = [
   {
+    id: 1,
     title: "lorem ipsum 1",
-    description:
+    shortDesc:
       "Lorem ipsum odor amet, consectetuer adipiscing elit. At viverra consectetur ridiculus congue malesuada curae. Sodales mus aliquet eros sapien auctor lorem.",
+    fullDesc:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio quam molestiae quos incidunt quia. Itaque, placeat tempora officiis totam ipsa enim cumque facilis ab incidunt harum ipsum voluptatum voluptatibus commodi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem molestias maxime, ipsa dolorum cumque iste obcaecati voluptatibus, architecto earum iusto facilis iure rem illo ullam fugit eligendi inventore ea in. \n Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, molestias rerum. Quia commodi voluptatem impedit officiis optio vel. Sequi nemo consectetur dolor! Aperiam cumque atque nostrum esse, autem quo blanditiis.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam atque rem neque architecto recusandae ratione aperiam, accusantium dolor libero inventore error reprehenderit dignissimos esse modi dicta laudantium eius sint. Obcaecati! \n Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique ad deleniti totam iste saepe itaque distinctio, quo aut. Reiciendis provident id earum voluptatibus doloribus magnam eius iusto at nobis consectetur? \n Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus maxime omnis esse. Nam voluptatem facere dolore voluptas quae nulla soluta ratione, veritatis nesciunt nemo fuga aliquid natus, cum impedit vero.",
     image: "/place-holder-project-image.png",
-    link: "#",
+    githubUrl: "#",
   },
   {
+    id: 2,
     title: "lorem ipsum 2",
-    description:
+    shortDesc:
       "Lorem ipsum odor amet, consectetuer adipiscing elit. At viverra consectetur ridiculus congue malesuada curae. Sodales mus aliquet eros sapien auctor lorem.",
+    fullDesc:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio quam molestiae quos incidunt quia. Itaque, placeat tempora officiis totam ipsa enim cumque facilis ab incidunt harum ipsum voluptatum voluptatibus commodi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem molestias maxime, ipsa dolorum cumque iste obcaecati voluptatibus, architecto earum iusto facilis iure rem illo ullam fugit eligendi inventore ea in. \n Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, molestias rerum. Quia commodi voluptatem impedit officiis optio vel. Sequi nemo consectetur dolor! Aperiam cumque atque nostrum esse, autem quo blanditiis.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam atque rem neque architecto recusandae ratione aperiam, accusantium dolor libero inventore error reprehenderit dignissimos esse modi dicta laudantium eius sint. Obcaecati! \n Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique ad deleniti totam iste saepe itaque distinctio, quo aut. Reiciendis provident id earum voluptatibus doloribus magnam eius iusto at nobis consectetur? \n Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus maxime omnis esse. Nam voluptatem facere dolore voluptas quae nulla soluta ratione, veritatis nesciunt nemo fuga aliquid natus, cum impedit vero.",
     image: "/place-holder-project-image.png",
-    link: "#",
+    githubUrl: "#",
   },
   {
+    id: 3,
     title: "lorem ipsum 3",
-    description:
+    shortDesc:
       "Lorem ipsum odor amet, consectetuer adipiscing elit. At viverra consectetur ridiculus congue malesuada curae. Sodales mus aliquet eros sapien auctor lorem.",
+    fullDesc:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio quam molestiae quos incidunt quia. Itaque, placeat tempora officiis totam ipsa enim cumque facilis ab incidunt harum ipsum voluptatum voluptatibus commodi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem molestias maxime, ipsa dolorum cumque iste obcaecati voluptatibus, architecto earum iusto facilis iure rem illo ullam fugit eligendi inventore ea in. \n Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, molestias rerum. Quia commodi voluptatem impedit officiis optio vel. Sequi nemo consectetur dolor! Aperiam cumque atque nostrum esse, autem quo blanditiis.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam atque rem neque architecto recusandae ratione aperiam, accusantium dolor libero inventore error reprehenderit dignissimos esse modi dicta laudantium eius sint. Obcaecati! \n Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique ad deleniti totam iste saepe itaque distinctio, quo aut. Reiciendis provident id earum voluptatibus doloribus magnam eius iusto at nobis consectetur? \n Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus maxime omnis esse. Nam voluptatem facere dolore voluptas quae nulla soluta ratione, veritatis nesciunt nemo fuga aliquid natus, cum impedit vero.",
     image: "/place-holder-project-image.png",
-    link: "#",
+    githubUrl: "#",
   },
 ];
 
 const Projects = () => {
+  const [selectedProject, setSelectedProject] = useState<
+    null | (typeof artifacts)[0]
+  >(null);
+
   return (
     <section
       id="projects"
@@ -52,26 +69,20 @@ const Projects = () => {
                 : ""
             }`}
           >
-            <img
-              src={artifact.image}
-              alt={artifact.title}
-              className="w-full object-cover rounded"
+            <ProjectCard
+              project={artifact}
+              onClick={() => setSelectedProject(artifact)}
             />
-            <div className="p-7">
-              <h2 className="text-2xl font-bold mt-4">{artifact.title}</h2>
-              <p className="mt-2 text-gray-400">{artifact.description}</p>
-              <a
-                href={artifact.link}
-                className="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-800 transition"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Project
-              </a>
-            </div>
           </div>
         ))}
       </div>
+
+      {selectedProject && (
+        <ProjectModal
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
+      )}
     </section>
   );
 };

@@ -40,7 +40,7 @@ const Hero = () => {
               fullScreen: { enable: false, zIndex: 0 },
               background: { color: "transparent" },
               particles: {
-                number: { value: 75 },
+                number: { value: 60 },
                 shape: { type: "line" },
                 size: { value: 3 },
                 move: { enable: true, speed: 2 },
