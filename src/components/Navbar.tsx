@@ -8,8 +8,8 @@ const Navbar = () => {
   const menuItems = [
     { label: "Home", href: "#hero" },
     { label: "About", href: "#about" },
+    { label: "Code Review", href: "#code-video" },
     { label: "Projects", href: "#projects" },
-    { label: "Contact", href: "#contact" },
   ];
 
   useEffect(() => {
@@ -48,7 +48,10 @@ const Navbar = () => {
         <ul className="hidden md:flex space-x-6 ml-auto">
           {menuItems.map((item) => (
             <li key={item.href}>
-              <a href={item.href} className="hover:underline transition-all">
+              <a
+                href={item.href}
+                className="hover:underline hover:text-blue-700 transition-all"
+              >
                 {item.label}
               </a>
             </li>

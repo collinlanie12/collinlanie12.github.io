@@ -17,24 +17,24 @@ const Projects = () => {
       </h1>
 
       {/* Project Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-6 px-3 py-3 lg:grid-cols-8 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-6 px-8 py-3 lg:grid-cols-3 gap-6">
         {artifacts.map((artifact, index) => (
           <div
             key={artifact.id}
-            className={`bg-gray-800 rounded-lg shadow-none overflow-hidden h-full border-4 border-solid border-black dark:border-gray-500 transition-shadow hover:shadow-lg hover:shadow-black dark:hover:shadow-gray-400  duration-300"
+            className={`
             ${
               index === 0
-                ? "md:col-start-2 md:col-span-4 md:row-start-1 lg:col-start-2 lg:col-span-3 lg:row-start-1"
+                ? "md:col-start-2 md:col-span-4 md:row-start-1 lg:col-start-1 lg:col-span-1 lg:row-start-1"
                 : ""
             }
             ${
               index === 1
-                ? "md:col-start-2 md:col-span-4 md:row-start-2 lg:col-start-5 lg:col-span-3 lg:row-start-2"
+                ? "md:col-start-2 md:col-span-4 md:row-start-2 lg:col-start-2 lg:col-span-1 lg:row-start-1"
                 : ""
             }
             ${
               index === 2
-                ? "md:col-start-2 md:col-span-4 md:row-start-3 lg:col-start-2 lg:col-span-3 lg:row-start-3"
+                ? "md:col-start-2 md:col-span-4 md:row-start-3 lg:col-start-3 lg:col-span-1 lg:row-start-1"
                 : ""
             }`}
           >

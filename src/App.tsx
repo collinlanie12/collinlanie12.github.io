@@ -6,7 +6,7 @@ import Loading from "./components/Loading";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Projects from "./components/Projects";
-import Contact from "./components/Contact";
+import CodeReview from "./components/CodeReview";
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -34,8 +34,8 @@ const App = () => {
       <Navbar />
       <Hero />
       <About />
+      <CodeReview />
       <Projects />
-      <Contact />
       <Footer />
     </div>
   );
