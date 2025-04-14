@@ -6,7 +6,6 @@ body {
   @apply bg-black text-white;
 }
 
-// Navbar mobile styles
 .hamburger-line {
   width: 1.5rem;
   height: 0.125rem;
