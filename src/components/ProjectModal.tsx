@@ -1,5 +1,16 @@
-import { useRef, useEffect } from "react";
+/**
+ * ProjectModal.tsx
+ *
+ * This component represents a modal that displays detailed information about a project.
+ * It includes a title, description, images, and a link to the project's GitHub repository.
+ *
+ * Author: Collin Lanier
+ * Date: April 12, 2025
+ */
 
+import { useRef, useEffect, useState } from "react";
+
+//This interface defines the structure of the project object passed to the modal
 interface ProjectModalProps {
   project: {
     id: number;
@@ -8,7 +19,7 @@ interface ProjectModalProps {
     paragraphs: string[];
     outcomes?: string[];
     conclusion?: string;
-    image: string;
+    images: string[];
     githubUrl: string;
   };
   onClose: () => void;
@@ -16,7 +27,10 @@ interface ProjectModalProps {
 
 const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
   const modalRef = useRef<HTMLDivElement>(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
+  // Effect to handle clicks outside the modal to close it
+  // and to disable scroll when the modal is open
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -34,39 +48,75 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
-
       // Re-enable scroll on close
       document.body.style.overflow = "auto";
     };
   }, [onClose]);
 
+  // Handler to go to the previous image
+  const handlePrev = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === 0 ? project.images.length - 1 : prevIndex - 1
+    );
+  };
+
+  // Handler to go to the next image
+  const handleNext = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === project.images.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+    <div className="fixed inset-0 bg-black bg-opacity-70 flex z-50 items-center justify-center">
       <div
-        className="bg-gray-100 dark:bg-gray-800 text-black dark:text-white rounded-lg shadow-lg w-11/12 md:max-w-4xl max-h-[90vh] overflow-y-auto p-8 relative"
         ref={modalRef}
+        className="bg-gray-100 dark:bg-gray-800 text-black dark:text-white rounded-lg shadow-lg w-11/12 md:max-w-4xl max-h-[90vh] overflow-y-auto p-8 relative"
       >
+        {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-2 right-3 text-gray-600 dark:text-white text-2xl font-bold"
+          className=" text-gray-600 dark:text-white text-2xl font-bold"
         >
           &times;
         </button>
-        <img
-          src={project.image}
-          alt={project.title}
-          className="w-full object-cover rounded mb-4"
-        />
+
+        {/* Image Carousel */}
+        <div className="relative">
+          <img
+            src={project.images[currentImageIndex]}
+            alt={`${project.title} screenshot ${currentImageIndex + 1}`}
+            className="w-full object-cover rounded mb-4"
+          />
+          {project.images.length > 1 && (
+            <>
+              <button
+                onClick={handlePrev}
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white px-2 py-1 rounded"
+                aria-label="Previous image"
+              >
+                &#8249;
+              </button>
+              <button
+                onClick={handleNext}
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white px-2 py-1 rounded"
+                aria-label="Next image"
+              >
+                &#8250;
+              </button>
+            </>
+          )}
+        </div>
+
+        {/* Project Details */}
         <h2 className="text-3xl font-bold mb-4">{project.title}</h2>
 
-        {/* Render paragraphs */}
         {project.paragraphs.map((para, index) => (
-          <p key={index} className="mb-4">
+          <p key={index} className="mb-4 indent-8">
             {para}
           </p>
         ))}
 
-        {/* Render outcomes as an indented list */}
         {project.outcomes && project.outcomes.length > 0 && (
           <ul className="list-decimal list-inside space-y-2 pl-6 mb-4">
             {project.outcomes.map((item, index) => (
@@ -75,13 +125,13 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
           </ul>
         )}
 
-        {/* Optional conclusion paragraph */}
         {project.conclusion &&
           project.conclusion.split("\n\n").map((para, index) => (
-            <p key={index} className="mb-4">
+            <p key={index} className="mb-4 indent-8">
               {para}
             </p>
           ))}
+
         <a
           href={project.githubUrl}
           target="_blank"

@@ -6,6 +6,7 @@ body {
   @apply bg-black text-white;
 }
 
+// Navbar mobile styles
 .hamburger-line {
   width: 1.5rem;
   height: 0.125rem;
@@ -13,8 +14,4 @@ body {
   position: absolute;
   left: 0;
   transition: all 0.3s ease;
-}
-
-html {
-  scroll-behavior: smooth;
 }

@@ -1,3 +1,13 @@
+/**
+ * Footer.tsx
+ *
+ * This component represents the footer of the ePortfolio.
+ * It includes links to my GitHub, LinkedIn, and LeetCode profiles.
+ *
+ * Author: Collin Lanier
+ * Date: April 12, 2025
+ */
+
 const Footer = () => {
   const links = [
     { label: "GitHub", href: "https://github.com/collinlanie12" },
@@ -9,7 +19,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-sky-200 text-black dark:text-white dark:bg-black p-4 border-t  dark:border-gray-700">
+    <footer className="bg-sky-200 text-black dark:text-white dark:bg-[#121212] z-0 p-4 border-t mt-0 md:mt-[19rem] lg:mt-0 dark:border-gray-700">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
         <p className="text-sm">
           &copy; {new Date().getFullYear()} Collin Lanier. All rights reserved.

@@ -1,3 +1,13 @@
+/**
+ * CodeReview.tsx
+ *
+ * This component represents the Code Review section of the ePortfolio.
+ * It includes an embedded video of my code review.
+ *
+ * Author: Collin Lanier
+ * Date: April 12, 2025
+ */
+
 const CodeReview = () => {
   return (
     <section

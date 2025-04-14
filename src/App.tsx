@@ -1,42 +1,57 @@
-import { useState, useEffect } from "react";
+/**
+ * App.tsx
+ *
+ * This is the main entry point of the ePortfolio application.
+ * It sets up the dark mode state and renders the main components of the portfolio.
+ * The components include the Navbar, Hero, Self Assessment, Code Review, Projects, and Footer.
+ *
+ * Author: Collin Lanier
+ * Date: April 12, 2025
+ */
 
+import { useState, useEffect } from "react";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
-import Loading from "./components/Loading";
 import Hero from "./components/Hero";
-import About from "./components/About";
+import SelfAssessment from "./components/SelfAssessment";
 import Projects from "./components/Projects";
 import CodeReview from "./components/CodeReview";
 
 const App = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [fadeIn, setFadeIn] = useState(false);
+  // Lift darkMode state to App
+  const [darkMode, setDarkMode] = useState(
+    () => localStorage.getItem("theme") === "dark"
+  );
 
   useEffect(() => {
-    // Simulate Loading time
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-      setTimeout(() => setFadeIn(true), 20); // Small delay for fade-in effect
-    }, 2800);
-    return () => clearTimeout(timer); // Clean up timeout
-  }, []);
-
-  if (isLoading) {
-    return <Loading />;
-  }
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+    localStorage.setItem("theme", darkMode ? "dark" : "light");
+  }, [darkMode]);
 
   return (
-    <div
-      className={`flex flex-col min-h-screen bg-black text-white transition-opacity duration-1000 ${
-        fadeIn ? "opacity-100" : "opacity-0"
-      }`}
-    >
-      <Navbar />
-      <Hero />
-      <About />
-      <CodeReview />
-      <Projects />
-      <Footer />
+    <div>
+      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+      <div className="snap-y snap-mandatory scroll-smooth overflow-auto h-screen">
+        <section id="hero" className="snap-center">
+          <Hero darkMode={darkMode} setDarkMode={setDarkMode} />
+        </section>
+        <section className="snap-center">
+          <SelfAssessment />
+        </section>
+        <section className="snap-center">
+          <CodeReview />
+        </section>
+        <section className="snap-center">
+          <Projects />
+        </section>
+        <section className="snap-start">
+          <Footer />
+        </section>
+      </div>
     </div>
   );
 };
