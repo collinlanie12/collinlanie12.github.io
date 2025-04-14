@@ -50,7 +50,7 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="w-full snap-center flex flex-col bg-gray-300 dark:bg-black text-white"
+      className="w-full snap-start flex flex-col bg-gray-300 dark:bg-black text-white"
     >
       <h1 className="text-5xl font-bold text-black dark:text-white mb-4 mt-32 mx-auto">
         Projects

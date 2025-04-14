@@ -45,7 +45,7 @@ const App = () => {
         <section className="snap-center">
           <CodeReview />
         </section>
-        <section className="snap-center">
+        <section className="snap-start">
           <Projects />
         </section>
         <section className="snap-start">
