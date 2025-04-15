@@ -92,14 +92,14 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
             <>
               <button
                 onClick={handlePrev}
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white px-2 py-1 rounded"
+                className="absolute left-6 top-1/2 transform -translate-y-1/2 bg-gray-900 bg-opacity-80 text-white text-2xl px-3 py-2 rounded-full shadow-lg hover:scale-105 transition-all"
                 aria-label="Previous image"
               >
                 &#8249;
               </button>
               <button
                 onClick={handleNext}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white px-2 py-1 rounded"
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-gray-900 bg-opacity-80 text-white text-2xl px-3 py-2 rounded-full shadow-lg hover:scale-105 transition-all"
                 aria-label="Next image"
               >
                 &#8250;
