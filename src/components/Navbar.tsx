@@ -14,9 +14,10 @@ import { FC, useEffect, useRef, useState } from "react";
 interface NavbarProps {
   darkMode: boolean;
   setDarkMode: (value: boolean) => void;
+  activeSection: string;
 }
 
-const Navbar: FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
+const Navbar: FC<NavbarProps> = ({ darkMode, setDarkMode, activeSection }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
@@ -65,16 +66,22 @@ const Navbar: FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
       <div className="w-full flex items-center justify-end p-4">
         {/* Desktop Menu: Items & Dark Mode Toggle on the Right */}
         <div className="hidden md:flex md:flex-row items-center space-x-6">
-          {menuItems.map((item) => (
-            <li key={item.href} className="list-none">
-              <a
-                href={item.href}
-                className="hover:underline hover:text-blue-700 transition-all"
-              >
-                {item.label}
-              </a>
-            </li>
-          ))}
+          {menuItems.map((item) => {
+            // Compare activeSection with the link’s id
+            const isActive = activeSection === item.href.substring(1);
+            return (
+              <li key={item.href} className="list-none">
+                <a
+                  href={item.href}
+                  className={`hover:underline transition-all ${
+                    isActive ? "text-blue-700" : "hover:text-blue-700"
+                  }`}
+                >
+                  {item.label}
+                </a>
+              </li>
+            );
+          })}
           <button
             onClick={() => setDarkMode(!darkMode)}
             className="p-2 rounded-full bg-gray-400 dark:bg-gray-700 transition-all z-10 opacity-0 animate-fadeInDelay4"

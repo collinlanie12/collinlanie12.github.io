@@ -18,10 +18,13 @@ import Projects from "./components/Projects";
 import CodeReview from "./components/CodeReview";
 
 const App = () => {
-  // Lift darkMode state to App
+  // Dark mode state
   const [darkMode, setDarkMode] = useState(
     () => localStorage.getItem("theme") === "dark"
   );
+
+  // For the navbar to know which section is active
+  const [activeSection, setActiveSection] = useState("hero");
 
   useEffect(() => {
     if (darkMode) {
@@ -32,20 +35,42 @@ const App = () => {
     localStorage.setItem("theme", darkMode ? "dark" : "light");
   }, [darkMode]);
 
+  //Use the Intersection Observer API to detect which section is currently in view.
+  useEffect(() => {
+    // Only select sections that have an id
+    const sections = document.querySelectorAll("section[id]");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.6 }
+    );
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div>
-      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+      <Navbar
+        darkMode={darkMode}
+        setDarkMode={setDarkMode}
+        activeSection={activeSection}
+      />
       <div className="snap-y snap-mandatory scroll-smooth overflow-auto h-screen">
         <section id="hero" className="snap-center">
           <Hero darkMode={darkMode} setDarkMode={setDarkMode} />
         </section>
-        <section className="snap-center">
+        <section id="self-assess" className="snap-center">
           <SelfAssessment />
         </section>
-        <section className="snap-center">
+        <section id="code-video" className="snap-center">
           <CodeReview />
         </section>
-        <section className="snap-start">
+        <section id="projects" className="snap-start">
           <Projects />
         </section>
         <section className="snap-start">
