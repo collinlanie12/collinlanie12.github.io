@@ -31,7 +31,7 @@ const Footer = () => {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:underline"
+                className="hover:underline hover:text-blue-700"
               >
                 {link.label}
               </a>

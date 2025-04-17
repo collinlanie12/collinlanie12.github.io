@@ -20,7 +20,7 @@ const Hero: FC<HeroProps> = ({ darkMode, setDarkMode }) => {
   return (
     <div className="flex-grow">
       <div
-        id="hero"
+        id="home"
         className="h-screen flex flex-col items-center justify-center px-1 bg-gray-100 dark:bg-[#121212] text-black dark:text-white text-center relative overflow-hidden snap-start"
       >
         {/* Dark Mode Toggle Button */}

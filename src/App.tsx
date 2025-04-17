@@ -47,7 +47,7 @@ const App = () => {
           }
         });
       },
-      { threshold: 0.6 }
+      { threshold: 0.3 }
     );
     sections.forEach((section) => observer.observe(section));
     return () => observer.disconnect();

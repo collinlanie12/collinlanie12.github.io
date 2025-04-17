@@ -23,7 +23,7 @@ const Navbar: FC<NavbarProps> = ({ darkMode, setDarkMode, activeSection }) => {
   const navRef = useRef<HTMLDivElement>(null);
 
   const menuItems = [
-    { label: "Home", href: "#hero" },
+    { label: "Home", href: "#home" },
     { label: "Self Assessment", href: "#self-assess" },
     { label: "Code Review", href: "#code-video" },
     { label: "Projects", href: "#projects" },
@@ -38,10 +38,10 @@ const Navbar: FC<NavbarProps> = ({ darkMode, setDarkMode, activeSection }) => {
       { threshold: 0.5 }
     );
 
-    const hero = document.querySelector("#hero");
-    if (hero) observer.observe(hero);
+    const home = document.querySelector("#home");
+    if (home) observer.observe(home);
     return () => {
-      if (hero) observer.unobserve(hero);
+      if (home) observer.unobserve(home);
     };
   }, []);
 

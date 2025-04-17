@@ -21,7 +21,7 @@ const ProjectCard = ({ project, onClick, animationClass }: ProjectProps) => (
   <div
     onClick={onClick}
     className={`cursor-pointer group relative flex flex-col my-6 z-10
-      bg-white dark:bg-gray-800 shadow-sm border border-slate-700 dark:border-slate-700
+      bg-white dark:bg-gray-800 shadow-sm border border-slate-700 dark:border-white
       rounded-lg w-96 h-[450px] xl:h-[500px] xl:w-[500px] hover:shadow-lg hover:shadow-black dark:hover:shadow-white transition-shadow duration-300
       opacity-0 ${animationClass ? animationClass : ""}`}
   >

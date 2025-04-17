@@ -136,7 +136,7 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
           href={project.githubUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-700 transition"
+          className="inline-block bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-700 hover:-translate-y-1 hover:scale-110 transition delay-150 ease-in-out"
         >
           View on GitHub
         </a>

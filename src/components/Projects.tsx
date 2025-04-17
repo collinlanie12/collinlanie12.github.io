@@ -23,7 +23,7 @@ const Projects = () => {
 
   /**
    * Effect to handle the visibility of the grid container
-   * and to apply the animation when it enters the viewport.
+   * and to apply the animation when it comes into view.
    * It uses the Intersection Observer API to detect when the grid is in view.
    */
   useEffect(() => {
@@ -32,7 +32,7 @@ const Projects = () => {
       (entries) => {
         if (entries[0].isIntersecting) {
           setGridInView(true);
-          observer.disconnect(); // disconnect once in view
+          observer.disconnect();
         }
       },
       { threshold: 0.1 }
@@ -48,10 +48,7 @@ const Projects = () => {
   }, []);
 
   return (
-    <section
-      id="projects"
-      className="w-full snap-start flex flex-col bg-gray-300 dark:bg-black text-white"
-    >
+    <div className="w-full snap-start flex flex-col bg-gray-300 dark:bg-black text-white">
       <h1 className="text-5xl font-bold text-black dark:text-white mb-4 mt-32 mx-auto">
         Projects
       </h1>
@@ -85,7 +82,7 @@ const Projects = () => {
           onClose={() => setSelectedProject(null)}
         />
       )}
-    </section>
+    </div>
   );
 };
 
