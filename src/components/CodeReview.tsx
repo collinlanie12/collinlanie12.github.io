@@ -24,7 +24,6 @@ const CodeReview = () => {
           <iframe
             src="https://www.youtube.com/embed/1IqiXAjxmqs"
             title="Code Review Video"
-            loading="lazy"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             className="w-full rounded-lg h-full"
