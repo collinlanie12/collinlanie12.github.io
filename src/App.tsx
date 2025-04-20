@@ -74,7 +74,7 @@ const App = () => {
         <section id="projects" className="snap-start">
           <Projects />
         </section>
-        <section className="snap-start">
+        <section className="snap-end">
           <Footer />
         </section>
       </div>
