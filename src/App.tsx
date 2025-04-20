@@ -16,6 +16,7 @@ import Hero from "./components/Hero";
 import SelfAssessment from "./components/SelfAssessment";
 import Projects from "./components/Projects";
 import CodeReview from "./components/CodeReview";
+import assessmentData from "./data/assessmentData";
 
 const App = () => {
   // Dark mode state
@@ -64,8 +65,8 @@ const App = () => {
         <section id="hero" className="snap-center">
           <Hero darkMode={darkMode} setDarkMode={setDarkMode} />
         </section>
-        <section id="self-assess" className="snap-center">
-          <SelfAssessment />
+        <section id="self-assess" className="snap-start">
+          <SelfAssessment assessmentData={assessmentData} />
         </section>
         <section id="code-video" className="snap-center">
           <CodeReview />
